@@ -590,6 +590,365 @@ footer {
 .footer-links a:hover { color: var(--gold); }
 .footer-copy { font-size: 10px; color: rgba(243,233,215,0.2); letter-spacing: 0.05em; }
 
+/* ─── COFFEE BEAN VISUALS ─── */
+.bean-svg { display: block; }
+
+/* Floating beans in hero */
+.hero-beans {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.hbean {
+  position: absolute; opacity: 0;
+  animation: beanFloat 0s ease-in-out infinite;
+}
+.hbean:nth-child(1) { top: 12%; right: 18%; width: 90px; animation: beanFloat 6s 0.5s ease-in-out infinite; }
+.hbean:nth-child(2) { top: 35%; right: 8%;  width: 55px; animation: beanFloat 8s 1.5s ease-in-out infinite; }
+.hbean:nth-child(3) { top: 60%; right: 25%; width: 70px; animation: beanFloat 7s 0.8s ease-in-out infinite; }
+.hbean:nth-child(4) { top: 22%; right: 38%; width: 40px; animation: beanFloat 9s 2s   ease-in-out infinite; }
+.hbean:nth-child(5) { top: 75%; right: 12%; width: 50px; animation: beanFloat 6.5s 1s ease-in-out infinite; }
+
+@keyframes beanFloat {
+  0%   { opacity: 0.06; transform: translateY(0px) rotate(0deg); }
+  33%  { opacity: 0.12; transform: translateY(-14px) rotate(5deg); }
+  66%  { opacity: 0.08; transform: translateY(-6px) rotate(-3deg); }
+  100% { opacity: 0.06; transform: translateY(0px) rotate(0deg); }
+}
+
+/* Bean divider strip */
+.bean-strip {
+  padding: 3rem 3.5rem;
+  background: var(--cappuccino);
+  display: flex; align-items: center; justify-content: center;
+  gap: 2.5rem; overflow: hidden;
+}
+.bean-strip-item {
+  display: flex; align-items: center; gap: 2.5rem; opacity: 0.55;
+}
+.bean-strip-item svg { width: 36px; height: auto; }
+.bsi-text {
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--espresso);
+}
+
+/* Scattered beans in story */
+.story-bean-deco {
+  position: absolute; pointer-events: none;
+}
+.sbd-1 { top: 4rem;  right: 3rem; width: 120px; opacity: 0.07; transform: rotate(25deg); }
+.sbd-2 { bottom: 6rem; left: 2rem; width: 80px;  opacity: 0.05; transform: rotate(-15deg); }
+
+/* Bean row in values section */
+.bean-row {
+  display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;
+}
+.bean-row svg { width: 28px; height: auto; opacity: 0.25; }
+.bean-row svg:nth-child(2) { opacity: 0.45; transform: scale(1.3); }
+.bean-row svg:nth-child(3) { opacity: 0.2; }
+
+/* Products section bean watermark */
+.prod-bean-bg {
+  position: absolute; top: 3rem; right: 2rem;
+  width: 180px; opacity: 0.04; pointer-events: none;
+  transform: rotate(40deg);
+}
+
+/* Contact section bean */
+.contact-bean-deco {
+  position: absolute; bottom: 2rem; right: 3rem;
+  width: 140px; opacity: 0.06; pointer-events: none;
+  transform: rotate(-20deg);
+}
+
+/* ─── COFFEE BEAN VISUAL BAND ─── */
+.bean-band {
+  background: var(--dark);
+  padding: 4rem 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background-color: rgba(183,152,88,0.1);
+}
+.bb-item {
+  background: var(--dark);
+  padding: 3rem 2.5rem;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 1.5rem;
+  transition: background 0.3s;
+}
+.bb-item:hover { background: #0e0a07; }
+.bb-icon-wrap {
+  width: 72px; height: 72px;
+  border: 1px solid rgba(183,152,88,0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.bb-icon-wrap svg { width: 36px; height: auto; }
+.bb-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; color: var(--cream); font-weight: 300;
+}
+.bb-desc { font-size: 12px; line-height: 1.75; color: rgba(243,233,215,0.4); }
+
+@media (max-width: 700px) {
+  .bean-band { grid-template-columns: 1fr; }
+  .bean-strip { gap: 1.5rem; flex-wrap: wrap; }
+}
+
+/* ─── ORDER FORM ─── */
+.order-section { padding: 9rem 3.5rem; background: var(--espresso); position: relative; overflow: hidden; }
+.order-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: linear-gradient(to right, var(--accent), var(--gold), var(--accent));
+}
+.order-inner { max-width: 1200px; margin: 0 auto; }
+.order-header { margin-bottom: 3.5rem; }
+.order-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.05;
+  color: var(--cream); margin-bottom: 1rem;
+}
+.order-title em { font-style: italic; color: var(--gold-lt); }
+.order-subtitle { font-size: 14px; line-height: 1.8; color: rgba(243,233,215,0.45); max-width: 520px; }
+
+.order-layout { display: grid; grid-template-columns: 1fr 380px; gap: 2.5rem; align-items: start; }
+
+/* Form card */
+.order-form-card {
+  background: rgba(243,233,215,0.04);
+  border: 1px solid rgba(183,152,88,0.15);
+  padding: 2.5rem;
+}
+.of-field { margin-bottom: 1.4rem; }
+.of-label {
+  display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.of-label-sm {
+  display: block; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(243,233,215,0.45); margin-bottom: 5px;
+}
+.req { color: var(--accent-lt); }
+.of-input, .of-select, .of-textarea {
+  width: 100%; padding: 10px 14px;
+  background: rgba(243,233,215,0.06);
+  border: 1px solid rgba(183,152,88,0.2);
+  color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px;
+  outline: none; transition: border-color 0.2s;
+  -webkit-appearance: none; appearance: none;
+}
+.of-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23B79858'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
+.of-input:focus, .of-select:focus, .of-textarea:focus { border-color: var(--gold); }
+.of-textarea { resize: vertical; min-height: 80px; }
+.of-select option { background: var(--espresso); color: var(--cream); }
+.of-select optgroup { color: var(--gold); }
+
+.of-divider {
+  font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin: 1.8rem 0 1.2rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid rgba(183,152,88,0.15);
+}
+
+/* Item rows */
+.item-row { margin-bottom: 1rem; }
+.item-row-inner {
+  display: grid; grid-template-columns: 1fr 90px 110px 60px auto;
+  gap: 8px; align-items: end;
+}
+.ir-price {
+  font-size: 13px; font-weight: 500; color: var(--gold-lt);
+  padding: 10px 0; white-space: nowrap;
+  align-self: end; padding-bottom: 11px;
+}
+.qty-input { text-align: center; }
+.remove-row-btn {
+  background: none; border: none; color: rgba(243,233,215,0.3);
+  cursor: pointer; font-size: 18px; line-height: 1;
+  padding: 0 4px; transition: color 0.2s; align-self: end; padding-bottom: 10px;
+}
+.remove-row-btn:hover { color: var(--accent-lt); }
+
+.add-item-btn {
+  background: none; border: 1px dashed rgba(183,152,88,0.3);
+  color: var(--gold); font-family: 'Jost', sans-serif;
+  font-size: 12px; letter-spacing: 0.15em;
+  padding: 10px 20px; cursor: pointer; width: 100%;
+  transition: all 0.25s; margin-bottom: 0.5rem;
+}
+.add-item-btn:hover { background: rgba(183,152,88,0.06); border-color: var(--gold); }
+
+/* Radio */
+.radio-group { display: flex; gap: 1.5rem; margin-top: 4px; }
+.radio-opt {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(243,233,215,0.7); cursor: pointer;
+}
+.radio-opt input { accent-color: var(--accent); width: 15px; height: 15px; }
+
+/* Postage note */
+.postage-note {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px;
+  background: rgba(183,152,88,0.07);
+  border-left: 2px solid var(--gold);
+  font-size: 12px; line-height: 1.6;
+  color: rgba(243,233,215,0.6); margin-top: 0.5rem;
+}
+.pn-icon { flex-shrink: 0; }
+
+/* Summary card */
+.order-summary {
+  background: var(--dark);
+  border: 1px solid rgba(183,152,88,0.2);
+  padding: 2rem;
+  position: sticky; top: 90px;
+}
+.os-label {
+  font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem; display: block;
+}
+.os-items { min-height: 80px; margin-bottom: 1.5rem; }
+.os-empty { font-size: 13px; color: rgba(243,233,215,0.3); line-height: 1.6; font-style: italic; }
+.os-item { padding: 10px 0; border-bottom: 1px solid rgba(243,233,215,0.07); }
+.os-item-name { font-size: 13px; color: var(--cream); margin-bottom: 3px; font-weight: 400; }
+.os-item-detail { font-size: 11px; color: rgba(243,233,215,0.4); }
+.os-item-price { font-size: 13px; color: var(--gold-lt); float: right; font-weight: 500; }
+
+.os-totals { border-top: 1px solid rgba(183,152,88,0.2); padding-top: 1rem; margin-bottom: 1.5rem; }
+.os-row { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; color: rgba(243,233,215,0.55); }
+.os-total-row { color: var(--cream); font-weight: 500; font-size: 16px; padding-top: 8px; border-top: 1px solid rgba(183,152,88,0.15); margin-top: 4px; }
+
+.os-info { padding: 1rem; background: rgba(243,233,215,0.03); margin-bottom: 1.5rem; }
+.os-info p { font-size: 11px; color: rgba(243,233,215,0.35); line-height: 1.9; }
+
+.wa-order-btn {
+  width: 100%; padding: 15px;
+  background: #25D366; color: #fff; border: none;
+  font-family: 'Jost', sans-serif; font-size: 13px;
+  letter-spacing: 0.1em; font-weight: 500;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background 0.25s; margin-bottom: 10px;
+}
+.wa-order-btn:hover { background: #1ebe5d; }
+.wa-hint { font-size: 11px; color: rgba(243,233,215,0.3); text-align: center; }
+
+.wholesale-divider {
+  text-align: center; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(243,233,215,0.2); margin: 14px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.wholesale-divider::before, .wholesale-divider::after {
+  content: ''; flex: 1; height: 1px; background: rgba(243,233,215,0.08);
+}
+.wholesale-btn {
+  width: 100%; padding: 13px;
+  background: transparent;
+  border: 1px solid rgba(183,152,88,0.3);
+  color: var(--gold); font-family: 'Jost', sans-serif;
+  font-size: 12px; letter-spacing: 0.12em; font-weight: 500;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all 0.25s;
+}
+.wholesale-btn:hover { background: rgba(183,152,88,0.08); border-color: var(--gold-lt); color: var(--gold-lt); }
+
+/* Calendar / time picker styling */
+.pickup-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.of-input[type="date"], .of-input[type="time"] {
+  color-scheme: dark;
+  cursor: pointer;
+}
+.time-hint { font-size: 11px; color: rgba(243,233,215,0.35); margin-top: 5px; }
+
+@media (max-width: 900px) {
+  .order-layout { grid-template-columns: 1fr; }
+  .order-section { padding: 5rem 1.5rem; }
+  .item-row-inner { grid-template-columns: 1fr 80px; gap: 8px; }
+  .ir-grind, .ir-qty { grid-column: span 1; }
+  .ir-bean { grid-column: span 2; }
+  .ir-size { grid-column: span 1; }
+  .ir-price { grid-column: span 2; padding-bottom: 0; }
+  .pickup-row { grid-template-columns: 1fr; }
+}
+
+/* ─── CONTACT ─── */
+.contact { padding: 9rem 3.5rem; background: var(--latte); }
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: start;
+}
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+.contact-title em { font-style: italic; color: var(--mocha); }
+.contact-body {
+  font-size: 14px; line-height: 1.9; color: var(--mist);
+  margin-bottom: 2.5rem; max-width: 420px;
+}
+.contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.contact-wa-btn {
+  display: inline-flex; align-items: center; gap: 1.2rem;
+  padding: 1.2rem 1.8rem;
+  background: #25D366; color: #fff;
+  text-decoration: none;
+  transition: background 0.25s; align-self: flex-start;
+}
+.contact-wa-btn:hover { background: #1ebe5d; }
+.wa-icon { display: flex; flex-shrink: 0; }
+.wa-text { display: flex; flex-direction: column; gap: 2px; }
+.wa-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; }
+.wa-num { font-size: 16px; font-weight: 500; letter-spacing: 0.05em; }
+
+.contact-note {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 1.5rem;
+  background: var(--cream); border-left: 3px solid var(--accent);
+}
+.contact-note p { font-size: 13px; line-height: 1.6; color: var(--mist); }
+.contact-note strong { color: var(--espresso); font-weight: 500; }
+
+.contact-right {}
+.contact-order-card {
+  background: var(--espresso);
+  padding: 2.5rem;
+}
+.coc-label {
+  font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+}
+.coc-steps { display: flex; flex-direction: column; gap: 0; }
+.coc-step {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(243,233,215,0.08);
+}
+.coc-step:first-child { padding-top: 0; }
+.coc-step:last-child { border-bottom: none; }
+.cos-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500; flex-shrink: 0; margin-top: 2px;
+}
+.cos-title { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 4px; }
+.cos-desc { font-size: 12px; line-height: 1.7; color: rgba(243,233,215,0.45); }
+.coc-btn {
+  display: block; margin-top: 2rem;
+  padding: 14px;
+  background: var(--accent); color: var(--cream);
+  text-align: center; text-decoration: none;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; font-weight: 500;
+  transition: background 0.25s;
+}
+.coc-btn:hover { background: var(--accent-lt); }
+
+@media (max-width: 900px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .contact { padding: 5rem 1.5rem; }
+}
+
 /* ─── REVEAL ─── */
 .reveal { opacity: 0; transform: translateY(32px);
   transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.75s cubic-bezier(0.4,0,0.2,1); }
@@ -637,9 +996,9 @@ footer {
     <li><a href="#story">Story</a></li>
     <li><a href="#products">Shop</a></li>
     <li><a href="#brew">Brew Guide</a></li>
-    <li><a href="#values">About</a></li>
-    <li><a href="https://wa.me/601117703603?text=Hi%20Mamemono%2C%20I%20want%20to%20order%20coffee" 
-     class="nav-cta" target="_blank" class="nav-cta">Order Now</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#order" class="nav-cta">Order Now</a></li>
   </ul>
 </nav>
 
@@ -659,12 +1018,20 @@ footer {
       bringing specialty coffee to everyone — cozy, honest, and made with love from Malaysia.
     </p>
     <div class="hero-cta">
-      <a href="#products" class="btn-accent">Shop Our Beans</a>
+      <a href="#order" class="btn-accent">Shop Our Beans</a>
       <a href="#story" class="btn-ghost-light">Our Story</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-kanji">豆</div>
+    <!-- Floating bean decorations -->
+    <div class="hero-beans">
+      <svg class="hbean" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#B79858"/><path d="M50 4 Q60 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <svg class="hbean" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#D6BFA6"/><path d="M50 4 Q60 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <svg class="hbean" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#B79858"/><path d="M50 4 Q60 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <svg class="hbean" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#7A553A"/><path d="M50 4 Q60 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <svg class="hbean" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#D6BFA6"/><path d="M50 4 Q60 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    </div>
     <div class="hero-tag">
       <div class="hero-tag-line"><div class="htl-dot"></div><span class="htl-text">Ethiopia · Washed Adado</span></div>
       <div class="hero-tag-line"><div class="htl-dot"></div><span class="htl-text">Brazil · Natural Tie Fogo</span></div>
@@ -697,8 +1064,46 @@ footer {
   </div>
 </div>
 
+<!-- BEAN VISUAL BAND -->
+<div class="bean-band">
+  <div class="bb-item reveal">
+    <div class="bb-icon-wrap">
+      <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#B79858"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+    </div>
+    <p class="bb-title">Single Origin</p>
+    <p class="bb-desc">5 origins sourced from Ethiopia, Brazil, Colombia, Guatemala & Indonesia. Each one tells a story.</p>
+  </div>
+  <div class="bb-item reveal rd1">
+    <div class="bb-icon-wrap">
+      <svg viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="40" cy="35" rx="36" ry="20" fill="#A13A1E" transform="rotate(-15 40 35)"/>
+        <path d="M25 18 Q42 35 28 52" stroke="#1C130D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="78" cy="35" rx="36" ry="20" fill="#D6BFA6" transform="rotate(15 78 35)"/>
+        <path d="M63 20 Q80 35 65 50" stroke="#1C130D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="bb-title">House Blends</p>
+    <p class="bb-desc">Ember & Terra — two signature blends crafted for balance, depth, and everyday warmth.</p>
+  </div>
+  <div class="bb-item reveal rd2">
+    <div class="bb-icon-wrap">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="30" fill="none" stroke="#B79858" stroke-width="1.5"/>
+        <circle cx="40" cy="40" r="18" fill="none" stroke="#B79858" stroke-width="1" opacity="0.5"/>
+        <ellipse cx="40" cy="40" rx="10" ry="14" fill="#F1C166" transform="rotate(-20 40 40)"/>
+        <path d="M33 28 Q42 40 34 52" stroke="#1C130D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="bb-title">Fresh on Demand</p>
+    <p class="bb-desc">Roasted only after you order. No shelf life guessing — just peak freshness, every single bag.</p>
+  </div>
+</div>
+
 <!-- STORY -->
-<section class="story" id="story">
+<section class="story" id="story" style="position:relative;">
+  <!-- Decorative beans -->
+  <svg class="story-bean-deco sbd-1" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#7A553A"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+  <svg class="story-bean-deco sbd-2" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#B08968"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
   <div class="story-intro">
     <div class="story-intro-left reveal">
       <span class="s-label">— Our Story</span>
@@ -745,6 +1150,30 @@ footer {
   </div>
 </section>
 
+<!-- BEAN STRIP DIVIDER -->
+<div class="bean-strip">
+  <div class="bean-strip-item">
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#3B2A22"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    <span class="bsi-text">Ethiopia · Washed Adado</span>
+  </div>
+  <div class="bean-strip-item">
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#3B2A22" transform="rotate(-10 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    <span class="bsi-text">Brazil · Natural</span>
+  </div>
+  <div class="bean-strip-item">
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#3B2A22" transform="rotate(10 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    <span class="bsi-text">Colombia · Supremo</span>
+  </div>
+  <div class="bean-strip-item">
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#3B2A22" transform="rotate(-5 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    <span class="bsi-text">Guatemala · SHB</span>
+  </div>
+  <div class="bean-strip-item">
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#3B2A22" transform="rotate(15 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#1C130D" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    <span class="bsi-text">Indonesia · Mandheling</span>
+  </div>
+</div>
+
 <!-- QUOTE BREAK -->
 <section class="quote-break">
   <div class="qb-left reveal">
@@ -768,7 +1197,7 @@ footer {
 <section class="products" id="products">
   <div class="section-header reveal">
     <h2 class="section-title">Our<br><em>Coffees.</em></h2>
-    <p class="section-sub">50g · 100g · 250g<br>Whole Bean · Grinded · Drip Coffee</p>
+    <p class="section-sub">100g · 250g<br>Whole Bean · Grinded · Drip Coffee</p>
   </div>
 
   <div class="prod-tabs reveal">
@@ -792,7 +1221,7 @@ footer {
           <div class="prod-row"><span class="pr-label">Altitude</span><span class="pr-val">1,945–2,000 masl</span></div>
           <div class="prod-row"><span class="pr-label">Roast</span><span class="pr-val">Medium-Dark</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">black tea</span>
             <span class="pn-tag">citrus</span>
@@ -812,7 +1241,7 @@ footer {
           <div class="prod-row"><span class="pr-label">Altitude</span><span class="pr-val">900–950 masl</span></div>
           <div class="prod-row"><span class="pr-label">Roast</span><span class="pr-val">Medium-Dark</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">smooth cocoa</span>
             <span class="pn-tag">nutty depth</span>
@@ -832,7 +1261,7 @@ footer {
           <div class="prod-row"><span class="pr-label">Altitude</span><span class="pr-val">1,500–1,700 masl</span></div>
           <div class="prod-row"><span class="pr-label">Roast</span><span class="pr-val">Medium-Dark</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">dark chocolate</span>
             <span class="pn-tag">ripe plum</span>
@@ -852,7 +1281,7 @@ footer {
           <div class="prod-row"><span class="pr-label">Altitude</span><span class="pr-val">1,400–2,000 masl</span></div>
           <div class="prod-row"><span class="pr-label">Roast</span><span class="pr-val">Medium-Dark</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">bright citrus</span>
             <span class="pn-tag">roasted nuts</span>
@@ -872,7 +1301,7 @@ footer {
           <div class="prod-row"><span class="pr-label">Altitude</span><span class="pr-val">1,200–1,500 masl</span></div>
           <div class="prod-row"><span class="pr-label">Roast</span><span class="pr-val">Medium-Dark</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">dark chocolate</span>
             <span class="pn-tag">tobacco</span>
@@ -892,7 +1321,7 @@ footer {
         <div class="prod-card-body">
           <div class="prod-row"><span class="pr-label">Best For</span><span class="pr-val">Espresso · Long Black · Americano</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">dark chocolate</span>
             <span class="pn-tag">burnt caramel</span>
@@ -912,7 +1341,7 @@ footer {
         <div class="prod-card-body">
           <div class="prod-row"><span class="pr-label">Best For</span><span class="pr-val">Espresso · Latte · Long Black</span></div>
           <div class="prod-row"><span class="pr-label">Format</span><span class="pr-val">Whole Bean · Grinded · Drip</span></div>
-          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">50g · 100g · 250g</span></div>
+          <div class="prod-row"><span class="pr-label">Weight</span><span class="pr-val">100g · 250g</span></div>
           <div class="prod-notes">
             <span class="pn-tag">chocolate</span>
             <span class="pn-tag">roasted almond</span>
@@ -1018,6 +1447,259 @@ footer {
       <div class="val-card">
         <p class="vc-small">Mamemono Means</p>
         <p class="vc-body">"Bean thing" — a small<br>word for something we<br>take very seriously.</p>
+        <div class="bean-row">
+          <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#7A553A" transform="rotate(-20 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#3B2A22" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#A13A1E" transform="rotate(5 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#3B2A22" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#B08968" transform="rotate(25 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#3B2A22" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="30" rx="46" ry="26" fill="#7A553A" transform="rotate(-10 50 30)"/><path d="M50 4 Q62 30 50 56" stroke="#3B2A22" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ORDER FORM -->
+<section class="order-section" id="order">
+  <div class="order-inner">
+    <div class="order-header reveal">
+      <span class="s-label">— Place Your Order</span>
+      <h2 class="order-title">Build your<br><em>perfect order.</em></h2>
+      <p class="order-subtitle">Select your beans, weight, and grind — we'll calculate the total and send it straight to WhatsApp. Freshly roasted after every confirmed order.</p>
+    </div>
+
+    <div class="order-layout">
+      <!-- LEFT: item builder -->
+      <div class="order-left reveal">
+        <div class="order-form-card">
+
+          <!-- Name -->
+          <div class="of-field">
+            <label class="of-label">Your Name <span class="req">*</span></label>
+            <input type="text" id="customerName" class="of-input" placeholder="e.g. Sarah Lee">
+          </div>
+          <div class="of-field">
+            <label class="of-label">Contact Number <span class="req">*</span></label>
+            <input type="text" id="customerPhone" class="of-input" placeholder="e.g. 011-1234 5678">
+          </div>
+
+          <div class="of-divider">☕ Add Coffee Items</div>
+
+          <!-- Item rows -->
+          <div id="itemRows">
+            <div class="item-row" data-row="0">
+              <div class="item-row-inner">
+                <div class="ir-field ir-bean">
+                  <label class="of-label-sm">Coffee Bean</label>
+                  <select class="of-select bean-select" onchange="updateRow(0)">
+                    <option value="">— Select Bean —</option>
+                    <optgroup label="🌱 Single Origin (RM22 / RM48 | Drip RM22)">
+                      <option value="brazil" data-price100="22" data-price250="48" data-type="single">Brazil Natural Tie Fogo</option>
+                      <option value="colombia" data-price100="22" data-price250="48" data-type="single">Colombia Supremo Huila</option>
+                      <option value="indonesia" data-price100="22" data-price250="48" data-type="single">Indonesia Mandheling G1</option>
+                      <option value="ethiopia" data-price100="22" data-price250="48" data-type="single">Ethiopia Washed Adado</option>
+                      <option value="guatemala" data-price100="22" data-price250="48" data-type="single">Guatemala Washed SHB</option>
+                    </optgroup>
+                    <optgroup label="🍂 House Blend (RM24 / RM50 | Drip RM24)">
+                      <option value="terra" data-price100="24" data-price250="50" data-type="blend">Mamemono Terra</option>
+                      <option value="ember" data-price100="24" data-price250="50" data-type="blend">Mamemono Ember</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="ir-field ir-size" id="sizeWrap0">
+                  <label class="of-label-sm">Size / Format</label>
+                  <select class="of-select size-select" onchange="updateRow(0)" id="sizeRow0">
+                    <option value="">— Select —</option>
+                    <option value="100">100g</option>
+                    <option value="250">250g</option>
+                    <option value="drip">Drip Bag (5×10g)</option>
+                  </select>
+                </div>
+                <div class="ir-field ir-grind" id="grindWrap0">
+                  <label class="of-label-sm">Grind Size</label>
+                  <select class="of-select grind-select" id="grindRow0">
+                    <option value="Whole Bean">Whole Bean</option>
+                    <option value="Pour Over">Pour Over</option>
+                    <option value="Espresso">Espresso</option>
+                    <option value="Moka Pot">Moka Pot</option>
+                  </select>
+                </div>
+                <div class="ir-field ir-qty">
+                  <label class="of-label-sm">Qty</label>
+                  <input type="text" inputmode="numeric" class="of-input qty-input" value="1" oninput="sanitiseQty(this); updateRow(0)" id="qtyRow0">
+                </div>
+                <div class="ir-price" id="priceRow0">RM —</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="add-item-btn" onclick="addRow()">+ Add Another Bean</button>
+
+          <div class="of-divider">📦 Delivery Details</div>
+
+          <div class="of-field">
+            <label class="of-label">Fulfilment Method <span class="req">*</span></label>
+            <div class="radio-group">
+              <label class="radio-opt">
+                <input type="radio" name="fulfil" value="pickup" onchange="toggleDelivery(this)"> Self-Pickup
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="fulfil" value="delivery" onchange="toggleDelivery(this)" checked> Delivery
+              </label>
+            </div>
+          </div>
+
+          <div id="deliveryFields">
+            <div class="of-field">
+              <label class="of-label">Recipient Name</label>
+              <input type="text" id="recipientName" class="of-input" placeholder="Full name for parcel">
+            </div>
+            <div class="of-field">
+              <label class="of-label">Delivery Address <span class="req">*</span></label>
+              <textarea id="deliveryAddress" class="of-textarea" rows="3" placeholder="Full address including postcode and state (for shipping estimate)" oninput="estimatePostage()"></textarea>
+            </div>
+            <div class="postage-note" id="postageNote">
+              <span class="pn-icon">📦</span>
+              <span id="postageText">Enter your state to estimate postage</span>
+            </div>
+          </div>
+
+          <div id="pickupFields" style="display:none;">
+            <div class="pickup-row">
+              <div class="of-field">
+                <label class="of-label">Pickup Date <span class="req">*</span></label>
+                <input type="date" id="pickupDate" class="of-input" min="">
+              </div>
+              <div class="of-field">
+                <label class="of-label">Pickup Time <span class="req">*</span></label>
+                <select id="pickupTimeSelect" class="of-select">
+                  <option value="">— Select Time —</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="10:30 AM">10:30 AM</option>
+                  <option value="11:00 AM">11:00 AM</option>
+                  <option value="11:30 AM">11:30 AM</option>
+                  <option value="12:00 PM">12:00 PM (Noon)</option>
+                  <option value="12:30 PM">12:30 PM</option>
+                  <option value="1:00 PM">1:00 PM</option>
+                  <option value="1:30 PM">1:30 PM</option>
+                  <option value="2:00 PM">2:00 PM</option>
+                  <option value="2:30 PM">2:30 PM</option>
+                  <option value="3:00 PM">3:00 PM</option>
+                  <option value="3:30 PM">3:30 PM</option>
+                  <option value="4:00 PM">4:00 PM</option>
+                  <option value="4:30 PM">4:30 PM</option>
+                  <option value="5:00 PM">5:00 PM</option>
+                  <option value="5:30 PM">5:30 PM</option>
+                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="6:30 PM">6:30 PM</option>
+                  <option value="7:00 PM">7:00 PM</option>
+                  <option value="7:30 PM">7:30 PM</option>
+                  <option value="8:00 PM">8:00 PM</option>
+                </select>
+                <p class="time-hint">⏰ Available: 10:00 AM – 8:00 PM</p>
+              </div>
+            </div>
+            <div class="postage-note">
+              <span class="pn-icon">✅</span>
+              <span>Self-pickup — no delivery charges. We'll confirm the pickup point via WhatsApp.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: order summary -->
+      <div class="order-right reveal rd1">
+        <div class="order-summary">
+          <p class="os-label">Order Summary</p>
+
+          <div class="os-items" id="osSummary">
+            <p class="os-empty">Your order will appear here as you select items above ☕</p>
+          </div>
+
+          <div class="os-totals">
+            <div class="os-row"><span>Subtotal</span><span id="osSubtotal">RM 0.00</span></div>
+            <div class="os-row" id="osPostageRow"><span>Est. Postage</span><span id="osPostage">—</span></div>
+            <div class="os-row os-total-row"><span>Total</span><span id="osTotal">RM 0.00</span></div>
+          </div>
+
+          <div class="os-info">
+            <p>💳 Payment: Bank Transfer / TNG</p>
+            <p>🚚 Delivery: 3–5 working days</p>
+            <p>⚗️ Lead Time: 1–2 days after payment</p>
+          </div>
+
+          <button class="wa-order-btn" onclick="sendWhatsApp()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.117 1.534 5.845L.057 23.516a.75.75 0 00.918.93l5.83-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.882 0-3.651-.502-5.183-1.381l-.371-.218-3.839 1.008 1.028-3.751-.242-.388A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fill="white"/></svg>
+            Inquiry via WhatsApp
+          </button>
+          <p class="wa-hint">Opens WhatsApp with your order summary in English & Chinese 🇲🇾</p>
+
+          <div class="wholesale-divider">or</div>
+
+          <button class="wholesale-btn" onclick="sendWholesaleWhatsApp()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><polyline points="16 21 12 17 8 21"/><polyline points="8 3 12 7 16 3"/></svg>
+            Wholesale / Bulk Inquiry
+          </button>
+          <p class="wa-hint" style="margin-top:6px;">For orders &gt;1kg or custom bundles — DM us for special pricing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <span class="s-label">— Get In Touch</span>
+      <h2 class="contact-title">Questions?<br><em>We're here.</em></h2>
+      <p class="contact-body">
+        Reach us directly on WhatsApp for custom orders, bulk pricing, or just to say hi. We roast fresh on demand — 1–2 working days lead time after payment.
+      </p>
+      <div class="contact-details">
+        <a href="https://wa.me/601117703603?text=Hi%20Mamemono!%20I'd%20like%20to%20order%20some%20coffee%20beans%20%F0%9F%AB%98" target="_blank" class="contact-wa-btn">
+          <span class="wa-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.117 1.534 5.845L.057 23.516a.75.75 0 00.918.93l5.83-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.882 0-3.651-.502-5.183-1.381l-.371-.218-3.839 1.008 1.028-3.751-.242-.388A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fill="currentColor"/></svg>
+          </span>
+          <span class="wa-text">
+            <span class="wa-label">WhatsApp Us</span>
+            <span class="wa-num">+60 11-1770 3603</span>
+          </span>
+        </a>
+        <div class="contact-note">
+          <p>📍 <strong>Based in Malaysia</strong> — shipping within MY</p>
+          <p>📦 Available in <strong>100g &amp; 250g</strong></p>
+          <p>⚗️ Format: <strong>Whole Bean · Grinded · Drip Coffee</strong></p>
+          <p>🕐 Roasted fresh on demand — allow <strong>1–2 days</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right reveal rd2">
+      <div class="contact-order-card">
+        <p class="coc-label">How to Order</p>
+        <div class="coc-steps">
+          <div class="coc-step">
+            <span class="cos-num">1</span>
+            <div class="cos-text">
+              <p class="cos-title">Pick your bean</p>
+              <p class="cos-desc">Single origin or house blend — browse the menu above and pick your favourite.</p>
+            </div>
+          </div>
+          <div class="coc-step">
+            <span class="cos-num">2</span>
+            <div class="cos-text">
+              <p class="cos-title">Choose your format</p>
+              <p class="cos-desc">Whole Bean, Grinded, or Drip Coffee bags. 100g or 250g.</p>
+            </div>
+          </div>
+          <div class="coc-step">
+            <span class="cos-num">3</span>
+            <div class="cos-text">
+              <p class="cos-title">WhatsApp your order</p>
+              <p class="cos-desc">Drop us a message — we'll confirm, roast fresh, and arrange delivery.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#order" class="coc-btn">Start Your Order →</a>
       </div>
     </div>
   </div>
@@ -1030,7 +1712,7 @@ footer {
   <h2 class="cta-title reveal">Your next favourite<br><em>cup</em> is waiting.</h2>
   <p class="cta-body reveal">Pick your origin. We roast it fresh. It arrives at your door ready to become part of your morning ritual.</p>
   <div class="cta-btns reveal">
-    <a href="#products" class="btn-lg-accent">Shop All Beans</a>
+    <a href="https://wa.me/601117703603?text=Hi%20Mamemono!%20I'd%20like%20to%20order%20some%20coffee%20beans%20%F0%9F%AB%98" target="_blank" class="btn-lg-accent">Inquiry via WhatsApp</a>
     <a href="#story" class="btn-lg-outline">Read Our Story</a>
   </div>
 </section>
@@ -1046,42 +1728,374 @@ footer {
     <a href="#story">Story</a>
     <a href="#brew">Brew Guide</a>
     <a href="#values">About</a>
-    <a href="#">Instagram</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/601117703603" target="_blank">WhatsApp</a>
   </div>
-  <p class="footer-copy">© 2025 Mamemono · Roasted with love</p>
+  <p class="footer-copy">© 2025 Mamemono · +60 11-1770 3603 · Roasted with love in Malaysia · <span style="color:var(--gold);font-weight:500;">Wholesale Available</span></p>
 </footer>
 
 <script>
-// Scroll reveal
+// ── Scroll reveal ──
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Tab system — clone cards into filtered panels
+// ── Tab system ──
 function showTab(type, btn) {
   document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.prod-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
-
-  if (type === 'all') {
-    document.getElementById('tab-all').classList.add('active');
-    return;
-  }
-
-  const target = document.getElementById('tab-' + type);
-  const grid = target.querySelector('.prod-grid') || target;
-  // clear
+  if (type === 'all') { document.getElementById('tab-all').classList.add('active'); return; }
   const existingGrid = type === 'single' ? document.getElementById('single-grid') : document.getElementById('blend-grid');
   existingGrid.innerHTML = '';
-
-  // get source cards
   document.querySelectorAll('#tab-all .prod-card[data-type="' + type + '"]').forEach(card => {
     existingGrid.appendChild(card.cloneNode(true));
   });
-
-  target.classList.add('active');
+  document.getElementById('tab-' + type).classList.add('active');
 }
+
+// ── Order form ──
+let rowCount = 1;
+
+const BEANS = {
+  brazil:        { name: 'Brazil Natural Tie Fogo',      p100: 22, p250: 48, pDrip: 22, type: 'Single Origin', roast: 'Medium-Dark' },
+  colombia:      { name: 'Colombia Supremo Huila',        p100: 22, p250: 48, pDrip: 22, type: 'Single Origin', roast: 'Medium-Dark' },
+  indonesia:     { name: 'Indonesia Mandheling G1',       p100: 22, p250: 48, pDrip: 22, type: 'Single Origin', roast: 'Medium-Dark' },
+  ethiopia:      { name: 'Ethiopia Washed Adado',         p100: 22, p250: 48, pDrip: 22, type: 'Single Origin', roast: 'Medium-Dark' },
+  guatemala:     { name: 'Guatemala Washed SHB',          p100: 22, p250: 48, pDrip: 22, type: 'Single Origin', roast: 'Medium-Dark' },
+  terra:         { name: 'Mamemono Terra (House Blend)',  p100: 24, p250: 50, pDrip: 24, type: 'House Blend',   roast: 'Medium-Dark' },
+  ember:         { name: 'Mamemono Ember (House Blend)',  p100: 24, p250: 50, pDrip: 24, type: 'House Blend',   roast: 'Medium-Dark' },
+};
+
+const POSTAGE = { west: 8, east: 15 };
+const EAST_MY = ['sabah','sarawak','labuan'];
+let currentPostage = 0;
+
+// Fix 1: Sanitise qty input — no negatives, no symbols, digits only
+function sanitiseQty(el) {
+  let v = el.value.replace(/[^0-9]/g, '');           // strip non-digits
+  if (v === '' || parseInt(v) < 1) v = '1';          // min 1
+  if (parseInt(v) > 99) v = '99';                    // max 99
+  el.value = v;
+  calcTotal();
+}
+
+function addRow() {
+  const id = rowCount++;
+  const container = document.getElementById('itemRows');
+  const div = document.createElement('div');
+  div.className = 'item-row';
+  div.dataset.row = id;
+  div.innerHTML = `
+    <div class="item-row-inner">
+      <div class="ir-field ir-bean">
+        <label class="of-label-sm">Coffee Bean</label>
+        <select class="of-select bean-select" onchange="updateRow(${id})">
+          <option value="">— Select Bean —</option>
+          <optgroup label="🌱 Single Origin (RM22 / RM48 | Drip RM22)">
+            <option value="brazil">Brazil Natural Tie Fogo</option>
+            <option value="colombia">Colombia Supremo Huila</option>
+            <option value="indonesia">Indonesia Mandheling G1</option>
+            <option value="ethiopia">Ethiopia Washed Adado</option>
+            <option value="guatemala">Guatemala Washed SHB</option>
+          </optgroup>
+          <optgroup label="🍂 House Blend (RM24 / RM50 | Drip RM24)">
+            <option value="terra">Mamemono Terra</option>
+            <option value="ember">Mamemono Ember</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="ir-field ir-size" id="sizeWrap${id}">
+        <label class="of-label-sm">Size / Format</label>
+        <select class="of-select size-select" onchange="updateRow(${id})" id="sizeRow${id}">
+          <option value="">— Select —</option>
+          <option value="100">100g</option>
+          <option value="250">250g</option>
+          <option value="drip">Drip Bag (5×10g)</option>
+        </select>
+      </div>
+      <div class="ir-field ir-grind" id="grindWrap${id}">
+        <label class="of-label-sm">Grind Size</label>
+        <select class="of-select grind-select" id="grindRow${id}">
+          <option value="Whole Bean">Whole Bean</option>
+          <option value="Pour Over">Pour Over</option>
+          <option value="Espresso">Espresso</option>
+          <option value="Moka Pot">Moka Pot</option>
+        </select>
+      </div>
+      <div class="ir-field ir-qty">
+        <label class="of-label-sm">Qty</label>
+        <input type="text" inputmode="numeric" class="of-input qty-input"
+          value="1" oninput="sanitiseQty(this); updateRow(${id})" id="qtyRow${id}">
+      </div>
+      <div class="ir-price" id="priceRow${id}">RM —</div>
+      <button class="remove-row-btn" onclick="removeRow(${id})" title="Remove">×</button>
+    </div>`;
+  container.appendChild(div);
+}
+
+function removeRow(id) {
+  const el = document.querySelector(`.item-row[data-row="${id}"]`);
+  if (el) { el.remove(); calcTotal(); }
+}
+
+function updateRow(id) {
+  const row = document.querySelector(`.item-row[data-row="${id}"]`);
+  if (!row) return;
+  const beanVal  = row.querySelector('.bean-select').value;
+  const sizeEl   = row.querySelector('.size-select');
+  const grindEl  = row.querySelector('.grind-select');
+  const sizeWrap = document.getElementById('sizeWrap' + id);
+  const grindWrap= document.getElementById('grindWrap' + id);
+  const priceEl  = document.getElementById('priceRow' + id);
+  const qtyEl    = document.getElementById('qtyRow' + id);
+
+  const bean = BEANS[beanVal];
+  if (!bean) { priceEl.textContent = 'RM —'; calcTotal(); return; }
+
+  // Drip bag selected as size — hide grind selector (no grind needed for drip bags)
+  const isDrip = sizeEl.value === 'drip';
+  grindWrap.style.display = isDrip ? 'none' : '';
+  sizeWrap.style.display  = '';
+
+  const size = sizeEl.value;
+  const qty  = Math.max(1, parseInt(qtyEl.value) || 1);
+  let unitPrice = 0;
+  if (size === '100')  unitPrice = bean.p100;
+  else if (size === '250')  unitPrice = bean.p250;
+  else if (size === 'drip') unitPrice = bean.pDrip;
+
+  if (unitPrice && size) {
+    priceEl.textContent = 'RM ' + (unitPrice * qty).toFixed(2);
+  } else {
+    priceEl.textContent = 'RM —';
+  }
+  calcTotal();
+}
+
+function calcTotal() {
+  const rows = document.querySelectorAll('.item-row');
+  let subtotal = 0;
+  const summaryItems = [];
+
+  rows.forEach(row => {
+    const id      = row.dataset.row;
+    const beanVal = row.querySelector('.bean-select').value;
+    const sizeEl  = row.querySelector('.size-select');
+    const grindEl = row.querySelector('.grind-select');
+    const qtyEl   = document.getElementById('qtyRow' + id);
+    const bean    = BEANS[beanVal];
+    if (!bean) return;
+
+    const size      = sizeEl.value;
+    const qty       = Math.max(1, parseInt(qtyEl.value) || 1);
+    let unitPrice = 0;
+    if (size === '100')  unitPrice = bean.p100;
+    else if (size === '250')  unitPrice = bean.p250;
+    else if (size === 'drip') unitPrice = bean.pDrip;
+    if (!unitPrice) return;
+
+    const lineTotal = unitPrice * qty;
+    subtotal += lineTotal;
+    const sizeLabel = size === 'drip' ? '5×10g Drip Bag' : (size + 'g');
+    const grind     = size === 'drip' ? 'Drip Bag (no grind)' : (grindEl ? grindEl.value : 'Whole Bean');
+    summaryItems.push({ name: bean.name, size: sizeLabel, grind, qty, unitPrice, lineTotal, type: bean.type, roast: bean.roast });
+  });
+
+  const summaryEl = document.getElementById('osSummary');
+  if (summaryItems.length === 0) {
+    summaryEl.innerHTML = '<p class="os-empty">Your order will appear here as you select items above ☕</p>';
+  } else {
+    summaryEl.innerHTML = summaryItems.map(i =>
+      `<div class="os-item">
+        <span class="os-item-price">RM ${i.lineTotal.toFixed(2)}</span>
+        <p class="os-item-name">${i.name}</p>
+        <p class="os-item-detail">${i.size} · ${i.grind} · Qty ${i.qty} @ RM${i.unitPrice}</p>
+      </div>`
+    ).join('');
+  }
+
+  document.getElementById('osSubtotal').textContent = 'RM ' + subtotal.toFixed(2);
+  const total = subtotal + currentPostage;
+  document.getElementById('osPostage').textContent = currentPostage > 0 ? 'RM ' + currentPostage.toFixed(2) : '—';
+  document.getElementById('osTotal').textContent   = 'RM ' + total.toFixed(2);
+  return { summaryItems, subtotal, total };
+}
+
+function estimatePostage() {
+  const addr   = (document.getElementById('deliveryAddress').value || '').toLowerCase();
+  const method = document.querySelector('input[name="fulfil"]:checked')?.value;
+  if (method === 'pickup') { currentPostage = 0; calcTotal(); return; }
+  const isEast = EAST_MY.some(s => addr.includes(s));
+  if (isEast) {
+    currentPostage = POSTAGE.east;
+    document.getElementById('postageText').textContent = '📍 East Malaysia — est. postage: RM' + POSTAGE.east;
+  } else if (addr.length > 8) {
+    currentPostage = POSTAGE.west;
+    document.getElementById('postageText').textContent = '📍 West Malaysia — est. postage: RM' + POSTAGE.west + ' (may vary by courier)';
+  } else {
+    currentPostage = 0;
+    document.getElementById('postageText').textContent = 'Enter your state to estimate postage';
+  }
+  calcTotal();
+}
+
+function toggleDelivery(el) {
+  const isDelivery = el.value === 'delivery';
+  document.getElementById('deliveryFields').style.display = isDelivery ? 'block' : 'none';
+  document.getElementById('pickupFields').style.display   = isDelivery ? 'none'  : 'block';
+  document.getElementById('osPostageRow').style.display   = isDelivery ? 'flex'  : 'none';
+  if (!isDelivery) { currentPostage = 0; calcTotal(); }
+}
+
+// Fix 1: name/phone sanitisation — allow letters, spaces, +, hyphens for phone
+function sanitiseName(el) {
+  el.value = el.value.replace(/[^a-zA-Z\u4e00-\u9fff\s\-'\.]/g, '');
+}
+function sanitisePhone(el) {
+  el.value = el.value.replace(/[^0-9\+\-\s]/g, '');
+}
+
+// Fix 3: set date min to today
+(function setMinDate() {
+  const el = document.getElementById('pickupDate');
+  if (el) {
+    const today = new Date().toISOString().split('T')[0];
+    el.min = today;
+  }
+})();
+
+// ── Fix 5: renamed to inquiry; Fix 6: wholesale added ──
+function sendWhatsApp() {
+  const name   = document.getElementById('customerName').value.trim();
+  const phone  = document.getElementById('customerPhone').value.trim();
+  const method = document.querySelector('input[name="fulfil"]:checked')?.value || 'delivery';
+  const addr   = document.getElementById('deliveryAddress')?.value.trim() || '';
+  const recip  = document.getElementById('recipientName')?.value.trim() || name;
+
+  // Fix 3: read date + time select
+  const pickupDate = document.getElementById('pickupDate')?.value || '';
+  const pickupTime = document.getElementById('pickupTimeSelect')?.value || '';
+  const pickupStr  = (pickupDate && pickupTime) ? `${pickupDate}, ${pickupTime}` : (pickupDate || pickupTime || 'TBD');
+
+  if (!name)  { alert('Please enter your name 😊'); return; }
+  if (!phone) { alert('Please enter your contact number 😊'); return; }
+  if (method === 'pickup' && (!pickupDate || !pickupTime)) {
+    alert('Please select your preferred pickup date and time 📅'); return;
+  }
+  if (method === 'delivery' && addr.length < 5) {
+    alert('Please enter your delivery address 📦'); return;
+  }
+
+  const result = calcTotal();
+  if (!result || !result.summaryItems || result.summaryItems.length === 0) {
+    alert('Please add at least one item to your order ☕'); return;
+  }
+  const { summaryItems, subtotal, total } = result;
+
+  // English
+  const enItems = summaryItems.map(i =>
+    `  • ${i.name}\n    Roast: ${i.roast} | Size: ${i.size} | Grind: ${i.grind} | Qty: ${i.qty} | RM${i.lineTotal.toFixed(2)}`
+  ).join('\n');
+  const enDelivery = method === 'delivery'
+    ? `Fulfilment: Delivery\n\n1. Recipient Name: ${recip}\n2. Contact Number: ${phone}\n3. Delivery Address: ${addr}\n\nEst. Postage: RM${currentPostage.toFixed(2)}`
+    : `Fulfilment: Self-Pickup\nPreferred Date & Time: ${pickupStr}`;
+
+  const enMsg =
+`🍄 Order Inquiry
+
+Hi Mamemono! Here's a summary of my order:
+
+☕️ Item(s):
+${enItems}
+
+📱 Contact: ${phone}
+💰 Subtotal: RM${subtotal.toFixed(2)}
+🚚 ${method === 'delivery' ? 'Est. Postage: RM' + currentPostage.toFixed(2) : 'Self-Pickup (Free)'}
+💳 Total Amount: RM${total.toFixed(2)}
+
+${enDelivery}
+
+Please confirm if everything looks good! Once confirmed, I'll proceed with payment ☕💖`;
+
+  // Chinese
+  const zhItems = summaryItems.map(i =>
+    `  • ${i.name}\n    烘焙度：${i.roast} | 规格：${i.size} | 研磨：${i.grind} | 数量：${i.qty} | RM${i.lineTotal.toFixed(2)}`
+  ).join('\n');
+  const zhDelivery = method === 'delivery'
+    ? `配送方式：快递配送\n\n1. 收件人姓名：${recip}\n2. 联系电话：${phone}\n3. 配送地址：${addr}\n\n预计运费：RM${currentPostage.toFixed(2)}`
+    : `配送方式：自取\n自取日期与时间：${pickupStr}`;
+
+  const zhMsg =
+`———
+🍄 订单询问
+
+嗨 Mamemono！以下是我的订单内容：
+
+☕️ 商品内容：
+${zhItems}
+
+📱 联系方式：${phone}
+💰 小计：RM${subtotal.toFixed(2)}
+🚚 ${method === 'delivery' ? '预计运费：RM' + currentPostage.toFixed(2) : '自取（免运费）'}
+💳 总金额：RM${total.toFixed(2)}
+
+${zhDelivery}
+
+请确认以上信息是否正确～确认后我会尽快付款 ☕️💖
+感谢你们的服务 🙌`;
+
+  window.open('https://wa.me/601117703603?text=' + encodeURIComponent(enMsg + '\n\n' + zhMsg), '_blank');
+}
+
+function sendWholesaleWhatsApp() {
+  const name  = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
+
+  const enMsg =
+`🍄 Wholesale / Bulk Inquiry
+
+Hi Mamemono! I'm interested in a wholesale or bulk order.
+
+Name: ${name || '(please fill name above)'}
+Contact: ${phone || '(please fill number above)'}
+
+I'd like to inquire about:
+• Bulk pricing for orders >1kg
+• Custom bundle options
+• Any available wholesale terms
+
+Looking forward to hearing from you! ☕
+
+———
+🍄 批发/大量采购询问
+
+嗨 Mamemono！我有兴趣进行批发或大量采购。
+
+姓名：${name || '（请填写上方姓名）'}
+联系方式：${phone || '（请填写上方电话）'}
+
+我想了解：
+• 超过1kg的批发价格
+• 自定义组合选项
+• 批发条款详情
+
+期待您的回复！☕`;
+
+  window.open('https://wa.me/601117703603?text=' + encodeURIComponent(enMsg), '_blank');
+}
+
+// Init
+document.querySelector('input[name="fulfil"][value="delivery"]').checked = true;
+document.getElementById('osPostageRow').style.display = 'flex';
+
+// Fix 1: apply sanitise listeners to first row qty
+document.getElementById('qtyRow0').addEventListener('input', function() {
+  sanitiseQty(this); updateRow(0);
+});
+document.getElementById('customerName').addEventListener('input', function() { sanitiseName(this); });
+document.getElementById('customerPhone').addEventListener('input', function() { sanitisePhone(this); });
 </script>
 </body>
 </html>
